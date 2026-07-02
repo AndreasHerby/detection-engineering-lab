@@ -1,0 +1,26 @@
+# Never commit raw log dumps — they're huge and may contain sensitive data
+*.evtx
+*.log
+logs/
+exports/
+
+# Never commit secrets or credentials
+*.env
+.env
+secrets.*
+*.pem
+*.key
+credentials*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Python (if you write helper scripts)
+__pycache__/
+*.pyc
+venv/
+.venv/
