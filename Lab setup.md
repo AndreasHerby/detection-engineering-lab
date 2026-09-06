@@ -10,3 +10,9 @@ The purpose of this document is to explain how the detection engineering lab was
 |------|----|------|--------------|
 | SIEM | Ubuntu 24.04 LTS (Desktop) | Log collection, detection, search | Wazuh (manager, indexer, dashboard) |
 | endpoint | Windows 11 Enterprise Evaluation | Victim endpoint + attack generation | Sysmon, Wazuh agent, Atomic Red Team |
+
+## Networking
+
+A regular NAT network provided internet access to both virtual machines but isolates them from one another. This NAT network puts them on the same shared private network so they can communicate to each other. This allows for the windows agent to ship its logs across to the SIEM on the ubuntu machine. This was verified initially by pinging the SIEM on the windows endpoint.
+
+
