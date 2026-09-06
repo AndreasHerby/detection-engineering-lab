@@ -4,6 +4,8 @@ The purpose of this document is to explain how the detection engineering lab was
 
 ## Lab architecture
 
+![Overview diagram of lab architecture](images/LabSetupDiagram.png)   
+
 ### Windows endpoint
 (the victim)
 - Atomic Red team generates attack
