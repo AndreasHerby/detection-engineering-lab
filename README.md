@@ -1,28 +1,18 @@
 # Detection Engineering Lab
 
-A home lab where I simulate real attacker techniques and write, tune, and document the
-detections that catch them. Each detection maps to a specific [MITRE ATT&CK](https://attack.mitre.org/)
-technique, is written in vendor-neutral [Sigma](https://github.com/SigmaHQ/sigma) format, and
-comes with a writeup explaining the telemetry it relies on and the false positives I tuned out.
+I have created a home lab where real techniques used by attackers are simulated, detected through custom rules which are then fined tuned to raise less false positives. Each detection maps to a MITRE ATT&CK technique and is written using sigma - a vendor-neutral detection rule language. I then will create a writeup for each detection which will include the custom rules explained and any troubleshooting needed to fine tune the detection.
 
-> **Why this project?** Detection engineering is the day-to-day work of blue teams and SOCs —
-> take a known attacker behavior, figure out what telemetry it generates, write logic to catch
-> it, then reduce false positives. This repo is my attempt to do that work end to end.
+**Why did i choose this project?**
 
-<!-- TODO: add a screenshot or diagram of your lab here. A picture of the SIEM catching an
-attack is the single most compelling thing a visitor can see. Put the image in an /images
-folder and reference it like: ![Lab overview](images/lab-overview.png) -->
+I am looking to break into blue-team/SOC placementss and internships, and detection engineering makes up a core piece of the work for those roles. I wanted to challenge myself to step outside of the usual offensive tooling projects and gain experience that mirrors the actual job. This gives me hands-on experience with SIEM, threat detection, MITRE ATT&CK framework and real troubleshooting experience along the way.
 
-## Lab architecture
+## Lab architecture overview
 
-<!-- TODO: fill in your real setup. Example below. -->
-
-- **Endpoint (Windows 10/11 VM):** Sysmon + Windows Event Logs, forwarded to the SIEM
-- **Endpoint (Linux VM):** auditd / journald, forwarded to the SIEM
-- **SIEM:** Wazuh (single-node) for log collection, search, and alerting
+- **Endpoint (Windows 10/11 VM):** Sysmon + Wazuh agent + Atomic RedTeam
+- **SIEM:** (Ubuntu 24.04 LTS - Desktop) running Wazuh
 - **Attack generation:** [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
 
-See [`lab-setup/`](lab-setup/) for how it's built and how to reproduce it.
+See [lab-setup](lab-setup.md) for how it's built and how to reproduce it.
 
 ## Detections
 
@@ -31,15 +21,14 @@ in [`writeups/`](writeups/).
 
 | Technique | Name | Tactic | Rule | Writeup |
 |-----------|------|--------|------|---------|
-| T1059.001 | PowerShell download cradle | Execution | [rule](detections/T1059.001-powershell-download-cradle.yml) | [writeup](writeups/T1059.001-powershell-download-cradle.md) |
-<!-- Add a row per detection as you go. Aim for 8-12 well-documented ones. -->
+
 
 ## The workflow
 
 Each detection follows the same loop:
 
 1. **Pick** a technique from MITRE ATT&CK.
-2. **Generate** the behavior safely with Atomic Red Team.
+2. **Generate** the behavior safely with Atomic Red Team on the Windows endpoint.
 3. **Write** a Sigma detection targeting the telemetry it produces.
 4. **Tune** it against normal activity to cut false positives.
 5. **Document** the technique, telemetry, logic, and tuning in a writeup.
@@ -56,6 +45,5 @@ detection-engineering-lab/
 
 ## About me
 
-<!-- TODO: one or two lines. Who you are, what you're studying, what you're looking for.
-e.g. "Second-year Computer Science student focused on blue-team security. Open to
-security internships for summer 2027." Link your LinkedIn if you have one. -->
+I am a Second-year cyber security student seeking placements and internships focusing on blue-team/SOC. This lab is actively in progress and providing me with hands-on experience - I am engineering detection rules to catch simulated attacker techniques on a victims system and writeups to explain the process of each one. 
+
