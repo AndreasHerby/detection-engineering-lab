@@ -21,5 +21,6 @@ A regular NAT network provided internet access to both virtual machines but isol
 2. SIEM: Create an Ubuntu 24.04 LTS and configure it so it is on the shared NAT network, the system is updated and Wazuh is installed using the all-in-one quick start installer. Verify this by logging onto the dashboard on the browser.
 3. Windows end point VM: Windows 11 Enterprise Evaluation ISO then attach it to the same NAT network as SIEM.
 4. Logs: Install Sysmon with the SwiftOnSecurity config for high quality event tracing
-5. Agent
-6. Atack generation
+5. Agent enrolement
+![Shows the active windows 11 agent](images/ActiveAgent.png) 
+7. Atack generation
